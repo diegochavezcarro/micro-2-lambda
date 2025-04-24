@@ -17,19 +17,21 @@ app.get('/saludar', async (req, res) => {
 
   const segment = AWSXRay.getSegment();
   const subsegment = segment.addNewSubsegment('InvocarLambda');
-
+  console.log("Llamando a Lambda con: ", { num1, num2 });
+  console.log("URL de Lambda: ", LAMBDA_URL);
   try {
     const response = await axios.post(LAMBDA_URL, {
       num1: parseFloat(num1),
       num2: parseFloat(num2)
     });
-
     const resultado = response.data.result;
+    console.log("Respuesta de Lambda: ", resultado);
     subsegment.close();
     res.send(`Hola ${nombre}, la suma es ${resultado}`);
   } catch (err) {
     subsegment.addError(err);
     subsegment.close();
+    console.error("Error llamando a Lambda: ", err);
     res.status(500).send('Error llamando a Lambda');
   }
 });
