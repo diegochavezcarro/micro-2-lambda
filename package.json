@@ -1,0 +1,24 @@
+{
+  "name": "micro-2-lambda",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/diegochavezcarro/micro-2-lambda.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/diegochavezcarro/micro-2-lambda/issues"
+  },
+  "homepage": "https://github.com/diegochavezcarro/micro-2-lambda#readme",
+  "description": "",
+  "dependencies": {
+    "express": "^4.18.4",
+    "axios": "^1.6.7",
+    "aws-xray-sdk": "^3.3.9"
+  }
+}
